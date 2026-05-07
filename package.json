@@ -1,0 +1,13 @@
+{
+  "name": "calculator-qa",
+  "version": "1.0.0",
+  "description": "Playwright + TypeScript test suite for a scientific calculator web app",
+  "scripts": {
+    "test": "npx playwright test",
+    "report": "npx playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "typescript": "^5.4.5"
+  }
+}
