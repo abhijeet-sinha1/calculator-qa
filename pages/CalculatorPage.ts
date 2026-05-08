@@ -1,4 +1,4 @@
-import { type Page, type Locator } from '@playwright/test';
+import { type Page } from '@playwright/test';
 
 export class CalculatorPage {
   readonly page: Page;
@@ -8,7 +8,7 @@ export class CalculatorPage {
   }
 
   async goto(): Promise<void> {
-    await this.page.goto('/');
+    await this.page.goto('/calculator/index.html');
   }
 
   async clickButton(label: string): Promise<void> {

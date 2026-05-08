@@ -6,7 +6,7 @@ export default defineConfig({
   retries: 0,
   reporter: [['html'], ['list']],
   use: {
-    baseURL: 'https://rbihubcodechallenge.github.io/calculator/index.html',
+    baseURL: 'https://rbihubcodechallenge.github.io',
     trace: 'on-first-retry',
   },
   projects: [
