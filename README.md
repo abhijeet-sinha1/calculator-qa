@@ -120,6 +120,24 @@ The missing-`)` test fails due to bug 7.
 
 ---
 
+## Note on CI status
+
+The CI pipeline will show as **failing**. This is intentional and expected.
+
+The test suite asserts mathematically correct behaviour against a deliberately broken
+calculator. Every bug listed in the table above causes one or more tests to fail, and
+the CI exits with a non-zero code as a result. The failures are the point — they are
+the bug report, not a sign that the test infrastructure is broken.
+
+All setup steps (checkout, Node install, dependency install, browser install) pass
+cleanly. Only the test run step fails, and the HTML report artifact is uploaded on
+every failure so the full breakdown is accessible directly from the Actions tab.
+
+To view the report from a CI run: download the `playwright-report` artifact from the
+Actions run and open it with `npx playwright show-report`.
+
+---
+
 ## CI pipeline (`.github/workflows/playwright.yml`)
 
 - Triggers on push and pull request to `main`
