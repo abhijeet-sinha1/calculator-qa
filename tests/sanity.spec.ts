@@ -49,7 +49,7 @@ test.describe('Sanity — Basic Arithmetic', () => {
       const display = await calc.getDisplay();
       expect(
         display,
-        `After pressing 2 + 3 =, display shows "${display}" — expected "5". Either a button was not found (locator issue) or the calculator evaluated the expression incorrectly (functionality bug).`
+        `After pressing 2 + 3 =, display shows "${display}" — expected "5". Known bug: the "3" button appends "0" instead of "3", so the actual expression sent was "2+0=2". This is a calculator functionality bug.`
       ).toBe('5');
     });
   });
@@ -77,7 +77,7 @@ test.describe('Sanity — Basic Arithmetic', () => {
       const display = await calc.getDisplay();
       expect(
         display,
-        `After pressing 3 × 4 =, display shows "${display}" — expected "12". Either the × button was not found or the calculator evaluated the expression incorrectly.`
+        `After pressing 3 × 4 =, display shows "${display}" — expected "12". Known bug: the "3" button appends "0" instead of "3", so the actual expression sent was "0×4=0". This is a calculator functionality bug.`
       ).toBe('12');
     });
   });
@@ -141,7 +141,7 @@ test.describe('Sanity — Basic Arithmetic', () => {
       const display = await calc.getDisplay();
       expect(
         display,
-        `After chaining (2+3=)+4=, display shows "${display}" — expected "9". The calculator may not be carrying the previous result into the next operation.`
+        `After chaining (2+3=)+4=, display shows "${display}" — expected "9". Known bug: the "3" button appends "0" instead of "3", so the first sequence evaluated "2+0=2", then "2+4=6". This is a calculator functionality bug.`
       ).toBe('9');
     });
   });
